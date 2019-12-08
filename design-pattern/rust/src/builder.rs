@@ -46,16 +46,23 @@ impl Director {
     }
 }
 
+#[test]
 fn main() {
     println!("## Builder ---------------------");
     let mut r_1 = Response::default();
 
     Director::ok(&mut r_1);
-    println!("OK: {:?}", r_1);
+    assert_eq!(r_1.status, 200);
+    assert_eq!(r_1.body, "succeed".to_owned());
+    assert_eq!(r_1.header, ("type".to_owned(), "ok".to_owned()));
 
     Director::err(&mut r_1);
-    println!("ERR: {:?}", r_1);
+    assert_eq!(r_1.status, 500);
+    assert_eq!(r_1.body, "wronged".to_owned());
+    assert_eq!(r_1.header, ("type".to_owned(), "err".to_owned()));
 
     Director::not_found(&mut r_1);
-    println!("NOT FOUND: {:?}", r_1);
+    assert_eq!(r_1.status, 404);
+    assert_eq!(r_1.body, "".to_owned());
+    assert_eq!(r_1.header, ("type".to_owned(), "not found".to_owned()));
 }

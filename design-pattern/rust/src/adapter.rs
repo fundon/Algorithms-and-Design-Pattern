@@ -38,6 +38,7 @@ impl Read for XmlAdapter {
     }
 }
 
+#[test]
 fn main() {
     println!("## Adapter ---------------------");
 
@@ -48,7 +49,7 @@ fn main() {
     };
 
     reader.read(json);
-    println!("read body from json: {}", reader.body);
+    assert_eq!(reader.body, "JSON");
 
     let xml = Xml {
         body: vec![b'X', b'M', b'L'],
@@ -57,5 +58,5 @@ fn main() {
     let xml_adapter = XmlAdapter { xml };
 
     reader.read(xml_adapter);
-    println!("read body from xml: {}", reader.body);
+    assert_eq!(reader.body, "XML");
 }

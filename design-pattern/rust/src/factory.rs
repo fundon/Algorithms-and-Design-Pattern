@@ -1,29 +1,29 @@
 /// Factory
 trait Shape {
-    fn draw(&self);
+    fn draw(&self) -> String;
 }
 
 struct Rectangle {}
 
 impl Shape for Rectangle {
-    fn draw(&self) {
-        println!("{} is drawing", "Rectangle")
+    fn draw(&self) -> String {
+        "Rectangle".to_owned()
     }
 }
 
 struct Square {}
 
 impl Shape for Square {
-    fn draw(&self) {
-        println!("{} is drawing", "Shape")
+    fn draw(&self) -> String {
+        "Shape".to_owned()
     }
 }
 
 struct Circle {}
 
 impl Shape for Circle {
-    fn draw(&self) {
-        println!("{} is drawing", "Circle")
+    fn draw(&self) -> String {
+        "Circle".to_owned()
     }
 }
 
@@ -43,14 +43,15 @@ impl ShapeType {
     }
 }
 
+#[test]
 fn main() {
     println!("## Factory ---------------------");
     let shape_1 = ShapeType::create(ShapeType::Rectangle);
-    shape_1.draw();
+    assert_eq!(shape_1.draw(), "Rectangle".to_owned());
 
     let shape_2 = ShapeType::create(ShapeType::Square);
-    shape_2.draw();
+    assert_eq!(shape_2.draw(), "Shape".to_owned());
 
     let shape_3 = ShapeType::create(ShapeType::Circle);
-    shape_3.draw();
+    assert_eq!(shape_3.draw(), "Circle".to_owned());
 }

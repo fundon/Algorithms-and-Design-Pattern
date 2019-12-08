@@ -33,6 +33,7 @@ impl Tag for Div {
     }
 }
 
+#[test]
 fn main() {
     println!("## Decorator ---------------------");
 
@@ -48,5 +49,5 @@ fn main() {
         tag: Box::new(span),
     };
 
-    println!("{}", div.draw());
+    assert_eq!(div.draw(), "<div><span>hello world</span></div>");
 }
