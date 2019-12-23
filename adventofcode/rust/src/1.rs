@@ -51,7 +51,7 @@ mod tests {
     use crate::*;
 
     #[test]
-    fn test() {
+    fn day_1() {
         assert_eq!(2, fuel(12));
         assert_eq!(2, fuel(14));
         assert_eq!(654, fuel(1969));
