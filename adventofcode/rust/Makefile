@@ -1,4 +1,4 @@
 day1:
-	cargo run --bin 1
+	cargo run --bin day_1
 day1-test:
-	cargo test --bin 1
+	cargo test --bin day_1

@@ -33,6 +33,7 @@ async fn main() -> io::Result<()> {
 
     while let Some(line) = lines.next().await {
         let mass = line?
+            .trim()
             .parse::<u32>()
             .map_err(|e| Error::new(ErrorKind::InvalidInput, e))?;
 

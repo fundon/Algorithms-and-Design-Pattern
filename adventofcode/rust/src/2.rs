@@ -57,6 +57,7 @@ async fn main() -> io::Result<()> {
     if let Some(line) = lines.next().await {
         input.append(
             &mut line?
+                .trim()
                 .split(',')
                 .map(|s| {
                     s.parse::<u32>()
