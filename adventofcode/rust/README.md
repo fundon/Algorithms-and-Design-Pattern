@@ -3,11 +3,15 @@
 ### Run
 
 ```shell
-$ make day1
+$ make run
+$ make run day=1
+$ make run day=4
 ```
 
 ### Test
 
 ```shell
-$ make day1-test
+$ make test
+$ make test day=1
+$ make test day=4
 ```

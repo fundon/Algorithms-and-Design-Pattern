@@ -1,4 +1,6 @@
-day1:
-	cargo run --bin day_1
-day1-test:
-	cargo test --bin day_1
+day ?= 1
+
+run:
+	cargo run --bin $(day)
+test:
+	cargo test --bin $(day)
